@@ -1,5 +1,6 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 from .models import Status, Issue
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -23,3 +24,13 @@ class BoardView(ListView):
             status=done
         ).order_by('-created_on').reverse()
         return context
+    
+class StatusUpdateView(UpdateView):
+    template_name = 'issues/board.html'
+    model = Issue
+    fields = ['summary', 'description', 'status',]
+    success_url = reverse_lazy('board')
+
+    def form_valid(self, form):
+        form.instance.status = Status.objects.get(name='form.instance.status')
+        return super().form_valid(form)

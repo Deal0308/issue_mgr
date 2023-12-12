@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Issue Detail{% endblock title %}
+
+{% block content %}
+    <h1>Issue Detail</h1>
+    <p><strong>Issue:</strong> {{ issue.title }}</p>
+    <p><strong>Description:</strong> {{ issue.description }}</p>
+    <p><strong>Status:</strong> {{ issue.get_status_display }}</p>
+    <p><strong>Created:</strong> {{ issue.created }}</p>
+    <p><strong>Modified:</strong> {{ issue.modified }}</p>
+    <p><strong>Assigned To:</strong> {{ issue.assigned_to }}</p>
+    <p><strong>Created By:</strong> {{ issue.created_by }}</p>
+    <p><strong>Modified By:</strong> {{ issue.modified_by }}</p>
+    <p><strong>Project:</strong> {{ issue.project }}</p>
+    <p><strong>Issue Type:</strong> {{ issue.issue_type }}</p>
+    <p><strong>Priority:</strong> {{ issue.priority }}</p>
+    <p><strong>Tags:</strong> {{ issue.tags }}</p>
+    <p><strong>Comments:</strong> {{ issue.comments }}</p>
+    <p><strong>Attachments:</strong> {{ issue.attachments }}</p>
+    <p><strong>Watchers:</strong> {{ issue.watchers }}</p>
+    <p><strong>Related Issues:</strong> {{ issue.related_issues }}</p>
+    <p><strong>Parent:</strong> {{ issue.parent }}</p>
+    <p><strong>Points:</strong> {{ issue.points }}</p>
+    <p><strong>Start Date:</strong> {{ issue.start_date }}</p>
+    <p><strong>Due Date:</strong> {{ issue.due_date }}</p>
+    <p><strong>Estimated Time:</strong> {{ issue.estimated_time }}</p>
+    <p><strong>Actual Time:</strong> {{ issue.actual_time }}</p>
+    <p><strong>Is Closed:</strong> {{ issue.is_closed }}</p>
+    <p><strong>Is Resolved:</strong> {{ issue.is_resolved }}</p>
+    <p><strong>Is Reopened:</strong> {{ issue.is_reopened }}</p>
+    <p><strong>Is Rejected:</strong> {{ issue.is_rejected }}</p>
+    <p><strong>Is Duplicate:</strong> {{ issue.is_duplicate }}</p>

@@ -11,10 +11,22 @@
                         <h1 class="mb-0">To Do</h1>
                     </div>
                     <div class="card-body">
-                        <p>Here are the issues.</p>
                         <ul class="list-group">
                             {% for issue in to_do_list %}
-                                <li class="list-group-item">{{ issue.summary }}</li>
+                                <li class="list-group-item">
+                                    <h5 class="mb-1">{{ issue.summary }}</h5>
+                                    <p class="mb-1">Assignee: {{ issue.assignee }}</p>
+                                    <p class="mb-0">Description: {{ issue.description }}</p>
+                                
+                                    <form method="POST" action="'{% url 'update_status' issue.id %}">
+
+                                        <input type="hidden" name="summary" value="{{ issue.summary }}">
+                                        <input type="hidden" name="description" value="{{ issue.description }}">
+                                        <input type="hidden" name="status" value="in progress">
+                                        {% csrf_token %}
+                                        <input type="submit" value="start" class="btn btn-success">
+                                    </form>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -26,10 +38,13 @@
                         <h1 class="mb-0">In Progress</h1>
                     </div>
                     <div class="card-body">
-                        <p>Here are the issues.</p>
                         <ul class="list-group">
                             {% for issue in in_progress_list %}
-                                <li class="list-group-item">{{ issue.summary }}</li>
+                                <li class="list-group-item">
+                                    <h5 class="mb-1">{{ issue.summary }}</h5>
+                                    <p class="mb-1">Assignee: {{ issue.assignee }}</p>
+                                    <p class="mb-0">Description: {{ issue.description }}</p>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -41,10 +56,13 @@
                         <h1 class="mb-0">Done</h1>
                     </div>
                     <div class="card-body">
-                        <p>Here are the issues.</p>
                         <ul class="list-group">
                             {% for issue in done_list %}
-                                <li class="list-group-item">{{ issue.summary }}</li>
+                                <li class="list-group-item">
+                                    <h5 class="mb-1">{{ issue.summary }}</h5>
+                                    <p class="mb-1">Assignee: {{ issue.assignee }}</p>
+                                    <p class="mb-0">Description: {{ issue.description }}</p>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>

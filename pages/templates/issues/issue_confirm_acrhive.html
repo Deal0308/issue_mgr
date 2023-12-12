@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirm Archive{% endblock title %}
+
+{% block content %}
+    <h1>Confirm Archive</h1>
+    <p>Are you sure you want to archive this issue?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Archive" class="btn btn-warning">
+    </form>
+{% endblock content %}

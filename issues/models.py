@@ -1,16 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-
 # Create your models here.
-class Status(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
 
-
-    def __str__(self):
-        return self.name
-    
 class Issue(models.Model):
     summary = models.CharField(max_length=256)
     description = models.TextField()
@@ -28,3 +20,11 @@ class Issue(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', args=[str(self.id)])
+    
+class Status(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+    
