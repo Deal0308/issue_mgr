@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Board{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="mb-0">To Do</h1>
+                    </div>
+                    <div class="card-body">
+                        <p>Here are the issues.</p>
+                        <ul class="list-group">
+                            {% for issue in to_do_list %}
+                                <li class="list-group-item">{{ issue.summary }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <h1 class="mb-0">In Progress</h1>
+                    </div>
+                    <div class="card-body">
+                        <p>Here are the issues.</p>
+                        <ul class="list-group">
+                            {% for issue in in_progress_list %}
+                                <li class="list-group-item">{{ issue.summary }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h1 class="mb-0">Done</h1>
+                    </div>
+                    <div class="card-body">
+                        <p>Here are the issues.</p>
+                        <ul class="list-group">
+                            {% for issue in done_list %}
+                                <li class="list-group-item">{{ issue.summary }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

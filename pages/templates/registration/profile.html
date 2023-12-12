@@ -2,6 +2,8 @@
 {% block title %}Profile{% endblock %}
 {% block content %}
     <h2>Profile</h2>
+    <!-- add user image here with css to make the picture round -->
+    <img src="{{ user.profile.image.url }}" alt="Profile Picture" style="width: 200px; height: 200px; border-radius: 50%;">
     <p>Username: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
     
